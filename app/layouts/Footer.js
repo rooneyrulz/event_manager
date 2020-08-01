@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
   footerText: {
     fontSize: 15,
     fontWeight: 'bold',
+    color: '#fff',
   },
 });
 

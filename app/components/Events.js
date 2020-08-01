@@ -20,18 +20,12 @@ const Events = () => {
     'Take a nap',
     'Taste a burgar',
     'Create some poems',
-    'Buy a coffee',
-    'Do shopping',
-    'Play football',
-    'Take a nap',
-    'Taste a burgar',
-    'Create some poems',
   ]);
 
   const eventList = event.map((ev) => <EventItem event={ev} />);
   return (
     <ScrollView>
-      <View style={styles.eventContainer}>{eventList}</View>;
+      <View style={styles.eventContainer}>{eventList}</View>
     </ScrollView>
   );
 };

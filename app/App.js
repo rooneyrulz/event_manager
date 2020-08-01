@@ -8,17 +8,21 @@ import Footer from './layouts/Footer';
 
 // COMPONENTS
 import Events from './components/Events';
+import NewEvent from './components/NewEvent';
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.top}>
+      <View style={styles.headerContainer}>
         <Header />
       </View>
-      <View style={styles.center}>
+      <View style={styles.newEventContainer}>
+        <NewEvent />
+      </View>
+      <View style={styles.eventContainer}>
         <Events />
       </View>
-      <View style={styles.bottom}>
+      <View style={styles.footerContainer}>
         <Footer />
       </View>
       <StatusBar style='auto' />
@@ -32,26 +36,36 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#fff',
     justifyContent: 'space-between',
-    padding: 20,
   },
-  top: {
+  headerContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    borderBottomWidth: 2,
-    borderBottomColor: '#000',
+    borderBottomWidth: 4,
+    borderBottomColor: '#fff',
+    marginTop: 25,
+    backgroundColor: 'darkslateblue',
   },
-  center: {
+  newEventContainer: {
+    flex: 1,
+    // alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 10,
+  },
+  eventContainer: {
     flex: 6,
     // alignItems: 'center',
     justifyContent: 'center',
-    borderBottomWidth: 2,
-    borderBottomColor: '#000',
+    borderBottomWidth: 4,
+    borderBottomColor: '#fff',
+    paddingHorizontal: 10,
   },
-  bottom: {
+  footerContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
+    // marginTop: 25,
+    backgroundColor: 'darkslateblue',
   },
 });
 
