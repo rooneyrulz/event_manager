@@ -6,19 +6,21 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
+  FlatList,
   Alert,
-  ScrollView,
 } from 'react-native';
 
 import EventItem from './EventItem';
 
-const Events = () => {
-  const [event, setEvent] = useState([]);
-
+const Events = ({ events }) => {
   return (
-    <ScrollView>
-      <View style={styles.eventContainer}></View>
-    </ScrollView>
+    <View style={styles.eventContainer}>
+      <FlatList
+        keyExtractor={(item) => item.id}
+        data={events}
+        renderItem={({ item }) => <EventItem item={item} />}
+      />
+    </View>
   );
 };
 

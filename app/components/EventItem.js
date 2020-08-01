@@ -1,8 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
-const EventItem = ({ event }) => {
-  return <Text style={styles.eventItem}>{event}</Text>;
+const EventItem = ({ item }) => {
+  return (
+    <TouchableOpacity style={styles.eventItem}>
+      <View style={styles.eventItemView}>
+        <Text>{item.event}</Text>
+        <Text>
+          <MaterialIcons
+            name='delete'
+            size={28}
+            onPress={(e) => Alert.alert('You wanna delete?')}
+          />
+        </Text>
+      </View>
+    </TouchableOpacity>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -10,6 +24,11 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 5,
     backgroundColor: '#ccc',
+  },
+  eventItemView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });
 

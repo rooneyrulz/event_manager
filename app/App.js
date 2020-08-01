@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { v4 } from 'uuid';
 
 // LAYOUTS
 import Header from './layouts/Header';
@@ -11,6 +12,14 @@ import Events from './components/Events';
 import NewEvent from './components/NewEvent';
 
 const App = () => {
+  const [events, setEvents] = useState([
+    { id: v4(), event: 'Buy a coffee' },
+    { id: v4(), event: 'Do shopping' },
+    { id: v4(), event: 'Take a nap' },
+    { id: v4(), event: 'Play football' },
+    { id: v4(), event: 'Order a piece of burgar' },
+  ]);
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -20,7 +29,7 @@ const App = () => {
         <NewEvent />
       </View>
       <View style={styles.eventContainer}>
-        <Events />
+        <Events events={events} />
       </View>
       <View style={styles.footerContainer}>
         <Footer />
