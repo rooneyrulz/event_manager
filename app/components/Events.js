@@ -13,19 +13,11 @@ import {
 import EventItem from './EventItem';
 
 const Events = () => {
-  const [event, setEvent] = useState([
-    'Buy a coffee',
-    'Do shopping',
-    'Play football',
-    'Take a nap',
-    'Taste a burgar',
-    'Create some poems',
-  ]);
+  const [event, setEvent] = useState([]);
 
-  const eventList = event.map((ev) => <EventItem event={ev} />);
   return (
     <ScrollView>
-      <View style={styles.eventContainer}>{eventList}</View>
+      <View style={styles.eventContainer}></View>
     </ScrollView>
   );
 };
