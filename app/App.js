@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { v4 } from 'uuid';
 
 // LAYOUTS
@@ -20,6 +20,9 @@ const App = () => {
     { id: v4(), event: 'Order a piece of burgar' },
   ]);
 
+  const onDeleteEvent = (id) =>
+    setEvents((prev) => prev.filter((event) => event.id !== id));
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -29,7 +32,11 @@ const App = () => {
         <NewEvent />
       </View>
       <View style={styles.eventContainer}>
-        <Events events={events} />
+        {events.length ? (
+          <Events events={events} onDeleteEvent={onDeleteEvent} />
+        ) : (
+          <Text style={{ textAlign: 'center' }}>No events yet...!</Text>
+        )}
       </View>
       <View style={styles.footerContainer}>
         <Footer />

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
-const EventItem = ({ item }) => {
+const EventItem = ({ item, onDeleteEvent }) => {
   return (
     <TouchableOpacity style={styles.eventItem}>
       <View style={styles.eventItemView}>
@@ -11,7 +11,7 @@ const EventItem = ({ item }) => {
           <MaterialIcons
             name='delete'
             size={28}
-            onPress={(e) => Alert.alert('You wanna delete?')}
+            onPress={(e) => onDeleteEvent(item.id)}
           />
         </Text>
       </View>

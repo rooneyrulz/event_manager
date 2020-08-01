@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  TextInput,
-  Button,
-  TouchableOpacity,
-  FlatList,
-  Alert,
-} from 'react-native';
+import React from 'react';
+import { StyleSheet, View, FlatList } from 'react-native';
 
 import EventItem from './EventItem';
 
-const Events = ({ events }) => {
+const Events = ({ events, onDeleteEvent }) => {
   return (
     <View style={styles.eventContainer}>
       <FlatList
         keyExtractor={(item) => item.id}
         data={events}
-        renderItem={({ item }) => <EventItem item={item} />}
+        renderItem={({ item }) => (
+          <EventItem item={item} onDeleteEvent={onDeleteEvent} />
+        )}
       />
     </View>
   );
