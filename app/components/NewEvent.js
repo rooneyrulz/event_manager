@@ -3,7 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   Modal,
   TextInput,
   Keyboard,
@@ -38,9 +37,13 @@ const NewEvent = () => {
                 style={styles.modalTextInput}
                 placeholder='New Event..'
               />
-              <TouchableOpacity>
-                <MaterialIcons name='cloud' size={30} />
-                <Text>Save</Text>
+              <TouchableOpacity style={styles.modalsave}>
+                <MaterialIcons
+                  style={styles.modalSaveIcon}
+                  name='cloud'
+                  size={30}
+                />
+                <Text style={styles.modalSaveText}>Save</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.modalFooter}></View>
@@ -84,6 +87,23 @@ const styles = StyleSheet.create({
     width: '80%',
     borderBottomWidth: 2,
     fontSize: 20,
+    marginBottom: 20,
+  },
+  modalsave: {
+    flexDirection: 'row',
+    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 8,
+    backgroundColor: 'darkslateblue',
+  },
+  modalSaveIcon: {
+    color: '#fff',
+    paddingRight: 10,
+  },
+  modalSaveText: {
+    fontSize: 18,
+    color: '#fff',
   },
   modalFooter: {
     flex: 1,
