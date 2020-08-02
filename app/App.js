@@ -1,6 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Platform,
+  StatusBar,
+} from 'react-native';
 
 // LAYOUTS
 import Header from './layouts/Header';
@@ -16,21 +22,41 @@ import EventProvider from './providers/EventProvider';
 const App = () => {
   return (
     <EventProvider>
-      <View style={styles.container}>
-        <View style={styles.headerContainer}>
-          <Header />
+      {Platform.OS === 'ios' ? (
+        <SafeAreaView>
+          <View style={styles.container}>
+            <View style={styles.headerContainer}>
+              <Header />
+            </View>
+            <View style={styles.newEventContainer}>
+              <NewEvent />
+            </View>
+            <View style={styles.eventContainer}>
+              <Events />
+            </View>
+            <View style={styles.footerContainer}>
+              <Footer />
+            </View>
+            <ExpoStatusBar style='auto' />
+          </View>
+        </SafeAreaView>
+      ) : (
+        <View style={styles.container}>
+          <View style={styles.headerContainer}>
+            <Header />
+          </View>
+          <View style={styles.newEventContainer}>
+            <NewEvent />
+          </View>
+          <View style={styles.eventContainer}>
+            <Events />
+          </View>
+          <View style={styles.footerContainer}>
+            <Footer />
+          </View>
+          <ExpoStatusBar style='auto' />
         </View>
-        <View style={styles.newEventContainer}>
-          <NewEvent />
-        </View>
-        <View style={styles.eventContainer}>
-          <Events />
-        </View>
-        <View style={styles.footerContainer}>
-          <Footer />
-        </View>
-        <StatusBar style='auto' />
-      </View>
+      )}
     </EventProvider>
   );
 };
@@ -48,7 +74,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     borderBottomWidth: 4,
     borderBottomColor: '#fff',
-    marginTop: 25,
+    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     backgroundColor: 'darkslateblue',
   },
   newEventContainer: {
