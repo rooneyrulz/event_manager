@@ -10,9 +10,16 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { v4 } from 'uuid';
 
-const NewEvent = () => {
+const NewEvent = ({ onAddEvent }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [userEvent, setUserEvent] = useState({ id: null, event: null });
+
+  const onEventSave = (e) => {
+    onAddEvent(userEvent);
+    setIsOpen((prev) => false);
+  };
 
   return (
     <View>
@@ -36,14 +43,20 @@ const NewEvent = () => {
               <TextInput
                 style={styles.modalTextInput}
                 placeholder='New Event..'
+                onChangeText={(val) =>
+                  setUserEvent({ ...userEvent, id: v4(), event: val })
+                }
               />
-              <TouchableOpacity style={styles.modalsave}>
+              <TouchableOpacity
+                style={styles.modalsave}
+                onPress={(e) => onEventSave(e)}
+              >
                 <MaterialIcons
                   style={styles.modalSaveIcon}
                   name='cloud'
                   size={30}
                 />
-                <Text style={styles.modalSaveText}>Save</Text>
+                <Text style={styles.modalSaveText}>Add To List</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.modalFooter}></View>
@@ -85,8 +98,8 @@ const styles = StyleSheet.create({
   },
   modalTextInput: {
     width: '80%',
-    borderBottomWidth: 2,
-    fontSize: 20,
+    borderBottomWidth: 1,
+    fontSize: 22,
     marginBottom: 20,
   },
   modalsave: {

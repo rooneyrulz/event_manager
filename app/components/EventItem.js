@@ -7,12 +7,8 @@ const EventItem = ({ item, onDeleteEvent }) => {
     <TouchableOpacity style={styles.eventItem}>
       <View style={styles.eventItemView}>
         <Text>{item.event}</Text>
-        <Text>
-          <MaterialIcons
-            name='delete'
-            size={28}
-            onPress={(e) => onDeleteEvent(item.id)}
-          />
+        <Text onPress={(e) => onDeleteEvent(item.id)}>
+          <MaterialIcons name='delete' size={28} />
         </Text>
       </View>
     </TouchableOpacity>

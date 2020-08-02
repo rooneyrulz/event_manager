@@ -23,13 +23,15 @@ const App = () => {
   const onDeleteEvent = (id) =>
     setEvents((prev) => prev.filter((event) => event.id !== id));
 
+  const onAddEvent = (event) => setEvents((prev) => [event, ...prev]);
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Header />
       </View>
       <View style={styles.newEventContainer}>
-        <NewEvent />
+        <NewEvent onAddEvent={onAddEvent} />
       </View>
       <View style={styles.eventContainer}>
         {events.length ? (
@@ -75,6 +77,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 4,
     borderBottomColor: '#fff',
     paddingHorizontal: 10,
+    marginVertical: 10,
   },
   footerContainer: {
     flex: 1,
