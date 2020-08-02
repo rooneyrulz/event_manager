@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
 import { StyleSheet, View, FlatList, Text } from 'react-native';
 
-import EventContext from '../contexts/EventContext';
+// COMPONENTS
 import EventItem from './EventItem';
+
+// EVENT CONTEXT
+import EventContext from '../contexts/EventContext';
 
 const Events = () => {
   const { events } = useContext(EventContext);

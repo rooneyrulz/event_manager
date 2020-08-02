@@ -12,6 +12,7 @@ import {
 import { MaterialIcons } from '@expo/vector-icons';
 import { v4 } from 'uuid';
 
+// EVENT CONTEXT
 import EventContext from '../contexts/EventContext';
 
 const NewEvent = () => {

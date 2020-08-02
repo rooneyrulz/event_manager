@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { v4 } from 'uuid';
 
-// Context
+// CONTEXT
 import EventContext from '../contexts/EventContext';
 
 const EventProvider = (props) => {
