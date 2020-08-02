@@ -1,24 +1,32 @@
-import React from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import React, { useContext } from 'react';
+import { StyleSheet, View, FlatList, Text } from 'react-native';
 
+import EventContext from '../contexts/EventContext';
 import EventItem from './EventItem';
 
-const Events = ({ events, onDeleteEvent }) => {
+const Events = () => {
+  const { events } = useContext(EventContext);
+
   return (
     <View style={styles.eventContainer}>
-      <FlatList
-        keyExtractor={(item) => item.id}
-        data={events}
-        renderItem={({ item }) => (
-          <EventItem item={item} onDeleteEvent={onDeleteEvent} />
-        )}
-      />
+      {events.length ? (
+        <FlatList
+          keyExtractor={(item) => item.id}
+          data={events}
+          renderItem={({ item }) => <EventItem item={item} />}
+        />
+      ) : (
+        <Text style={styles.notFoundText}>No events added yet...</Text>
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   eventContainer: {},
+  notFoundText: {
+    textAlign: 'center',
+  },
 });
 
 export default Events;

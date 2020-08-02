@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
-const EventItem = ({ item, onDeleteEvent }) => {
+import EventContext from '../contexts/EventContext';
+
+const EventItem = ({ item }) => {
+  const { onDeleteEvent } = useContext(EventContext);
+
   return (
     <TouchableOpacity style={styles.eventItem}>
       <View style={styles.eventItemView}>

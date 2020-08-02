@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,7 +12,11 @@ import {
 import { MaterialIcons } from '@expo/vector-icons';
 import { v4 } from 'uuid';
 
-const NewEvent = ({ onAddEvent }) => {
+import EventContext from '../contexts/EventContext';
+
+const NewEvent = () => {
+  const { onAddEvent } = useContext(EventContext);
+
   const [isOpen, setIsOpen] = useState(false);
   const [userEvent, setUserEvent] = useState({ id: null, event: null });
 
