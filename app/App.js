@@ -66,13 +66,11 @@ const styles = StyleSheet.create({
   },
   newEventContainer: {
     flex: 1,
-    // alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 10,
   },
   eventContainer: {
     flex: 6,
-    // alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 4,
     borderBottomColor: '#fff',
@@ -83,7 +81,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    // marginTop: 25,
     backgroundColor: 'darkslateblue',
   },
 });

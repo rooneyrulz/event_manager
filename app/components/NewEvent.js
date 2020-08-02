@@ -59,7 +59,9 @@ const NewEvent = ({ onAddEvent }) => {
                 <Text style={styles.modalSaveText}>Add To List</Text>
               </TouchableOpacity>
             </View>
-            <View style={styles.modalFooter}></View>
+            <View style={styles.modalFooter}>
+              <Text>Event Manager</Text>
+            </View>
           </View>
         </Modal>
       </TouchableWithoutFeedback>
@@ -120,6 +122,8 @@ const styles = StyleSheet.create({
   },
   modalFooter: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
