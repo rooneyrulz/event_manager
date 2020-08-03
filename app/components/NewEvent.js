@@ -18,6 +18,14 @@ import EventContext from '../contexts/EventContext';
 // TYPES
 import { ADD_EVENT } from '../config/types';
 
+// COLORS
+import {
+  textColor,
+  primaryColor,
+  bgColor,
+  secondaryColor,
+} from '../config/colors';
+
 const NewEvent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [userEvent, setUserEvent] = useState({ id: null, event: null });
@@ -44,7 +52,11 @@ const NewEvent = () => {
               style={styles.modalClose}
               onPress={(e) => setIsOpen((prev) => false)}
             >
-              <MaterialIcons name='close' size={40} />
+              <MaterialIcons
+                name='close'
+                size={40}
+                style={styles.modalCloseIcon}
+              />
             </TouchableOpacity>
             <View style={styles.modalEvent}>
               <TextInput
@@ -67,7 +79,7 @@ const NewEvent = () => {
               </TouchableOpacity>
             </View>
             <View style={styles.modalFooter}>
-              <Text>Event Manager</Text>
+              <Text style={styles.modalFooterText}>Event Manager</Text>
             </View>
           </View>
         </Modal>
@@ -78,27 +90,31 @@ const NewEvent = () => {
 
 const styles = StyleSheet.create({
   newEvent: {
-    backgroundColor: 'darkslateblue',
+    backgroundColor: textColor,
     padding: 10,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
   newEventIcon: {
-    color: '#fff',
+    color: primaryColor,
   },
   newEventText: {
     fontSize: 18,
-    color: '#fff',
+    color: primaryColor,
   },
   modalContent: {
     flex: 1,
+    backgroundColor: bgColor,
   },
   modalClose: {
     flex: 1,
     marginTop: 20,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  modalCloseIcon: {
+    color: textColor,
   },
   modalEvent: {
     flex: 4,
@@ -108,29 +124,37 @@ const styles = StyleSheet.create({
   modalTextInput: {
     width: '80%',
     borderBottomWidth: 1,
+    borderBottomColor: textColor,
+    backgroundColor: secondaryColor,
+    paddingVertical: 15,
+    paddingHorizontal: 10,
     fontSize: 22,
     marginBottom: 20,
+    color: textColor,
   },
   modalsave: {
     flexDirection: 'row',
     width: '80%',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 8,
-    backgroundColor: 'darkslateblue',
+    paddingVertical: 10,
+    backgroundColor: textColor,
   },
   modalSaveIcon: {
-    color: '#fff',
+    color: primaryColor,
     paddingRight: 10,
   },
   modalSaveText: {
     fontSize: 18,
-    color: '#fff',
+    color: primaryColor,
   },
   modalFooter: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  modalFooterText: {
+    color: textColor,
   },
 });
 

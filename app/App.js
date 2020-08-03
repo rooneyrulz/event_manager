@@ -19,6 +19,9 @@ import NewEvent from './components/NewEvent';
 // CONTEXT PROVIDERS
 import EventProvider from './providers/EventProvider';
 
+// COLORS
+import { bgColor, primaryColor, secondaryColor } from './config/colors';
+
 const App = () => {
   return (
     <EventProvider>
@@ -67,15 +70,14 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#fff',
     justifyContent: 'space-between',
+    backgroundColor: bgColor,
   },
   headerContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    borderBottomWidth: 4,
-    borderBottomColor: '#fff',
     marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    backgroundColor: 'darkslateblue',
+    backgroundColor: secondaryColor,
   },
   newEventContainer: {
     flex: 1,
@@ -85,16 +87,15 @@ const styles = StyleSheet.create({
   eventContainer: {
     flex: 6,
     justifyContent: 'center',
-    borderBottomWidth: 4,
-    borderBottomColor: '#fff',
     paddingHorizontal: 10,
-    marginVertical: 10,
+    marginVertical: 18,
+    backgroundColor: primaryColor,
   },
   footerContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: 'darkslateblue',
+    backgroundColor: secondaryColor,
   },
 });
 
