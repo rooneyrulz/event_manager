@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     flex: 6,
     justifyContent: 'center',
     paddingHorizontal: 10,
-    marginVertical: 18,
+    marginBottom: 10,
     backgroundColor: primaryColor,
   },
   footerContainer: {
