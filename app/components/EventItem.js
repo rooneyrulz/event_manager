@@ -5,14 +5,19 @@ import { MaterialIcons } from '@expo/vector-icons';
 // EVENT CONTEXT
 import EventContext from '../contexts/EventContext';
 
+// TYPES
+import { REMOVE_EVENT } from '../config/types';
+
 const EventItem = ({ item }) => {
-  const { onDeleteEvent } = useContext(EventContext);
+  const { dispatch } = useContext(EventContext);
 
   return (
     <TouchableOpacity style={styles.eventItem}>
       <View style={styles.eventItemView}>
         <Text>{item.event}</Text>
-        <Text onPress={(e) => onDeleteEvent(item.id)}>
+        <Text
+          onPress={(e) => dispatch({ type: REMOVE_EVENT, payload: item.id })}
+        >
           <MaterialIcons name='delete' size={28} />
         </Text>
       </View>

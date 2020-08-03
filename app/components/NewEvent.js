@@ -15,14 +15,16 @@ import { v4 } from 'uuid';
 // EVENT CONTEXT
 import EventContext from '../contexts/EventContext';
 
-const NewEvent = () => {
-  const { onAddEvent } = useContext(EventContext);
+// TYPES
+import { ADD_EVENT } from '../config/types';
 
+const NewEvent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [userEvent, setUserEvent] = useState({ id: null, event: null });
+  const { dispatch } = useContext(EventContext);
 
   const onEventSave = (e) => {
-    onAddEvent(userEvent);
+    dispatch({ type: ADD_EVENT, payload: userEvent });
     setIsOpen((prev) => false);
   };
 
