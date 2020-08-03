@@ -7,6 +7,9 @@ import EventItem from './EventItem';
 // EVENT CONTEXT
 import EventContext from '../contexts/EventContext';
 
+// COLORS
+import { textColor } from '../config/colors';
+
 const Events = () => {
   const { events } = useContext(EventContext);
 
@@ -29,6 +32,8 @@ const styles = StyleSheet.create({
   eventContainer: {},
   notFoundText: {
     textAlign: 'center',
+    color: textColor,
+    fontSize: 18,
   },
 });
 
